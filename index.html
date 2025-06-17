@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MySite | Web Solutions</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav id="navbar" class="navbar">
+    <div class="container">
+      <div class="logo">MySite</div>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">&#9776;</div>
+    </div>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="section">
+    <div class="content">
+      <h1>Welcome to MySite</h1>
+      <p>Your trusted partner in web design, development, and digital strategy.</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="content">
+      <h2>About Us</h2>
+      <p>We are a passionate team of developers, designers, and marketers dedicated to building beautiful and functional web experiences. With over 10 years of experience, we’ve helped startups and enterprises transform their digital presence.</p>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="section">
+    <div class="content">
+      <h2>Our Services</h2>
+      <ul>
+        <li>🌐 Web Design & Development</li>
+        <li>📱 Mobile App Development</li>
+        <li>🛒 E-Commerce Solutions</li>
+        <li>🚀 SEO & Digital Marketing</li>
+        <li>📈 Analytics & Performance Optimization</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="content">
+      <h2>Contact Us</h2>
+      <p>Have a project in mind or just want to say hello?</p>
+      <p>📧 Email: contact@mysite.com</p>
+      <p>📞 Phone: +1 (555) 123-4567</p>
+      <p>📍 Address: 123 Innovation Drive, Tech City</p>
+    </div>
+  </section>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+
+      let fromTop = window.scrollY + 60;
+      navLinks.forEach(link => {
+        const section = document.querySelector(link.getAttribute('href'));
+        if (
+          section.offsetTop <= fromTop &&
+          section.offsetTop + section.offsetHeight > fromTop
+        ) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    });
+
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
+  </script>
+
+</body>
+</html>
